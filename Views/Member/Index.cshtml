@@ -1,0 +1,91 @@
+﻿@model IEnumerable<DTO.MemberEntity>
+
+@{
+    ViewBag.Title = "Members";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.country)
+        </th>
+        @{ if (DTO.UserSession.CurrentUser != null)
+            {
+                if (DTO.UserSession.CurrentUser.admin == true)
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.first_name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.last_name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(Model => Model.admin)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(Model => Model.super_admin)
+                    </th>
+                    <th>Gestion</th>
+                }
+            }
+        }
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        // Seul les super admin n'apparaitront pas dans la liste des membres inscrits
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.country)
+            </td>
+            @{ if (DTO.UserSession.CurrentUser != null)
+                {
+                    if (DTO.UserSession.CurrentUser.admin == true)
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.first_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.last_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.admin)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.super_admin)
+                        </td>
+                        <td>
+                            @if (item.admin != true || DTO.UserSession.CurrentUser.super_admin == true || item.id == DTO.UserSession.CurrentUser.id)
+                            {
+                                @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                            }
+                            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                            @if (DTO.UserSession.CurrentUser.super_admin == true)
+                            {
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                            }
+                        </td>
+                    }
+                }
+            }
+        </tr>
+    }
+</table>

@@ -1,0 +1,74 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <title>@ViewBag.Title - Mon application ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Hotel Management", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Chambres", "Index", "Room")</li>
+                    <li>@Html.ActionLink("Hotels", "Index", "Hotel")</li>
+                    <li>@Html.ActionLink("Membres", "Index", "Member")</li>
+                    @{
+                        if (DTO.UserSession.CurrentUser == null)
+                        {
+                            <li>@Html.ActionLink("S'enregistrer", "Create", "Member")</li>               
+                            <li>@Html.ActionLink("Se connecter", "Create", "Login")</li>
+                        }
+                        else
+                        {
+                            if (DTO.UserSession.CurrentUser.admin == true)
+                            {
+                                if (DTO.UserSession.CurrentUser.super_admin == true)
+                                {
+                                    <li>@Html.ActionLink("Profil", "Profil", "Member")</li>
+                                }
+                                else
+                                {
+                                    <li>@Html.ActionLink("Profil","Profil","Member")</li>
+                                }
+                            }
+                            else if (DTO.UserSession.CurrentUser != null)
+                            {
+                                    <li>@Html.ActionLink("Profil utilisateur", "Profil", "Member")</li>
+                            }
+                            <li>@Html.ActionLink("Historique", "IndexValidate", "RentRoomMember", new { id = DTO.UserSession.CurrentUser.id }, null)</li>
+                            <li>@Html.ActionLink("Mon panier","IndexNotValidate","RentRoomMember", new { id = DTO.UserSession.CurrentUser.id }, null)</li>
+                            <li>@Html.ActionLink("Se déconnecter", "Delete", "Login")</li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My hotel management</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

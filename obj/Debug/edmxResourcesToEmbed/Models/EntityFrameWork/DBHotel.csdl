@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBHotel10Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="hotel">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_room" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="star_number" Type="Int32" Nullable="false" />
+    <Property Name="cp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="num" Type="Int32" Nullable="false" />
+    <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="geo_lat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="geo_lon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="capacity_rooms" Type="Int32" />
+    <Property Name="swimming_pool" Type="Byte" Nullable="false" />
+    <Property Name="driver" Type="Byte" />
+    <Property Name="room_service" Type="Byte" />
+    <NavigationProperty Name="room" Relationship="Self.FK_hotel" FromRole="hotel" ToRole="room" />
+    <NavigationProperty Name="room1" Relationship="Self.FK_room" FromRole="hotel" ToRole="room" />
+  </EntityType>
+  <EntityType Name="member">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="paswword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="rent_room_member" Relationship="Self.FK_rent_member" FromRole="member" ToRole="rent_room_member" />
+  </EntityType>
+  <EntityType Name="rent_room_member">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_room" Type="Int32" Nullable="false" />
+    <Property Name="id_member" Type="Int32" Nullable="false" />
+    <Property Name="firstdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="lastdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="member" Relationship="Self.FK_rent_member" FromRole="rent_room_member" ToRole="member" />
+    <NavigationProperty Name="room" Relationship="Self.FK_rent_room" FromRole="rent_room_member" ToRole="room" />
+  </EntityType>
+  <EntityType Name="room">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_hotel" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="detail_short" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="detail_long" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="capacity_room" Type="Int32" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="capacity_bathroom" Type="Int32" Nullable="false" />
+    <Property Name="capacity_wc" Type="Int32" Nullable="false" />
+    <Property Name="balcony_include" Type="Byte" Nullable="false" />
+    <Property Name="air_condition_include" Type="Byte" Nullable="false" />
+    <Property Name="wifi_include" Type="Byte" Nullable="false" />
+    <Property Name="small_bar_include" Type="Byte" Nullable="false" />
+    <Property Name="autorization_animals" Type="Byte" Nullable="false" />
+    <Property Name="tv_include" Type="Byte" Nullable="false" />
+    <Property Name="breakfast_include" Type="Byte" Nullable="false" />
+    <Property Name="price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="hotel" Relationship="Self.FK_hotel" FromRole="room" ToRole="hotel" />
+    <NavigationProperty Name="hotel1" Relationship="Self.FK_room" FromRole="room" ToRole="hotel" />
+    <NavigationProperty Name="rent_room_member" Relationship="Self.FK_rent_room" FromRole="room" ToRole="rent_room_member" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_hotel">
+    <End Role="hotel" Type="Self.hotel" Multiplicity="1" />
+    <End Role="room" Type="Self.room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hotel">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="room">
+        <PropertyRef Name="id_hotel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_room">
+    <End Role="room" Type="Self.room" Multiplicity="1" />
+    <End Role="hotel" Type="Self.hotel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="room">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="hotel">
+        <PropertyRef Name="id_room" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rent_member">
+    <End Role="member" Type="Self.member" Multiplicity="1" />
+    <End Role="rent_room_member" Type="Self.rent_room_member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="member">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rent_room_member">
+        <PropertyRef Name="id_member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rent_room">
+    <End Role="room" Type="Self.room" Multiplicity="1" />
+    <End Role="rent_room_member" Type="Self.rent_room_member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="room">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rent_room_member">
+        <PropertyRef Name="id_room" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBHotel10Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="hotel" EntityType="Self.hotel" />
+    <EntitySet Name="member" EntityType="Self.member" />
+    <EntitySet Name="rent_room_member" EntityType="Self.rent_room_member" />
+    <EntitySet Name="room" EntityType="Self.room" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_hotel" Association="Self.FK_hotel">
+      <End Role="hotel" EntitySet="hotel" />
+      <End Role="room" EntitySet="room" />
+    </AssociationSet>
+    <AssociationSet Name="FK_room" Association="Self.FK_room">
+      <End Role="room" EntitySet="room" />
+      <End Role="hotel" EntitySet="hotel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rent_member" Association="Self.FK_rent_member">
+      <End Role="member" EntitySet="member" />
+      <End Role="rent_room_member" EntitySet="rent_room_member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rent_room" Association="Self.FK_rent_room">
+      <End Role="room" EntitySet="room" />
+      <End Role="rent_room_member" EntitySet="rent_room_member" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

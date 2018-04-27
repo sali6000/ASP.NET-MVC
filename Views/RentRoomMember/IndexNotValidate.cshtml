@@ -1,0 +1,74 @@
+﻿@model BLL.ViewModelManager
+
+@if (Model.RentRoomMemberNotValidates.Count() > 0)
+{
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.id_room)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.first_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.last_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.firstdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.lastdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.adult)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.child)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.RentRoomMemberNotValidates)
+    {
+    <tr>
+        <td>
+            <img id="imgLittle" src="~/Pictures/@Model.RoomGetById(item.id_room).image" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Member.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Member.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adult)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.child)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </td>
+    </tr>
+    }
+</table>
+<h4>Prix total : </h4><h3>@Model.TotalPrice.ToString("0.00")</h3>
+@Html.ActionLink("Valider", "IndexValidate", "RentRoomMember", new { id = DTO.UserSession.CurrentUser.id }, null)
+}
+else
+{
+    <table>
+        <tr>
+            <td><h3>Vous n'avez pas effectué de réservation :()</h3></td>
+        </tr>
+    </table>
+}

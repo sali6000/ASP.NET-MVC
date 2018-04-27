@@ -1,0 +1,49 @@
+﻿@model DTO.RoomEntity
+
+<tr>
+    <td>
+        <a href="@Url.Action("Details","Room", new { id = Model.id })">
+            <img id="imgLittle" src="~/Pictures/@Model.GetImageHotel(Model.id_hotel)" />
+        </a>
+    </td>
+    <td>
+        @Html.DisplayFor(item => item.name)
+    </td>
+    <td>
+        @Html.DisplayFor(item => item.detail_short)
+    </td>
+    <td>
+        @Html.DisplayFor(item => item.capacity_room)
+    </td>
+    <td>
+        <a href="@Url.Action("Details","Room", new { id = Model.id })">
+            <img id="imgLittle" src="~/Pictures/@Model.image" />
+        </a>
+    </td>
+    <td>
+        @(Model.wifi_include == true ? "Oui" : "Non")
+    </td>
+    <td>
+        @(Model.breakfast_include == true ? "Oui" : "Non")
+    </td>
+    <td>
+        @Html.DisplayFor(item => item.price)
+    </td>
+    <td>
+        @{
+            @Html.ActionLink("Details", "Details", new { id = Model.id });
+            if (DTO.UserSession.CurrentUser != null)
+            {
+                <br>
+                @Html.ActionLink("Réserver", "Create", "RentRoomMember", new { id = Model.id }, null);
+                if (DTO.UserSession.CurrentUser.admin == true)
+                {
+                    <br>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.id });
+                    <br>
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.id });
+                }
+            }
+        }
+    </td>
+</tr>

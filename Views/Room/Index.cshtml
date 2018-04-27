@@ -1,0 +1,77 @@
+﻿@model IEnumerable<DTO.RoomEntity>
+
+@{
+    ViewBag.Title = "Chambres";
+}
+
+
+@using (Html.BeginForm("Index", "Room", FormMethod.Get))
+{
+    <br/>
+    <div style="float:left">
+        <h4>Effectuer une recherche:&nbsp;</h4>
+    </div>
+    <div style="float:left">
+        @Html.TextBox("search", null, new { placeholder = "Ex: Hilton", @class = "form-control" })&nbsp;
+    </div>
+    <div style="float:left">
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+    </div>
+        }
+        @if (Model != null)
+        {
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.id_hotel)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.detail_short)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.capacity_room)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.image)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.wifi_include)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.breakfast_include)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.price)
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    if (item.active == true)
+                    {
+                        @Html.Partial("RoomPartial", item)
+                    }
+                    else if (DTO.UserSession.CurrentUser != null && DTO.UserSession.CurrentUser.super_admin == true)
+                    {
+                        @Html.Partial("RoomPartial", item)
+                    }
+                }
+            </table>
+        }
+        else
+        {
+            <h2 align="center">Votre recherche n'a rien donné</h2>
+        }
+        @if (DTO.UserSession.CurrentUser != null)
+        {
+            if (DTO.UserSession.CurrentUser.admin == true)
+            {
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+            }
+        }

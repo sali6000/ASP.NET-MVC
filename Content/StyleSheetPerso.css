@@ -1,0 +1,45 @@
+﻿#verticalAlign
+{
+    margin:5%;
+    border:2px;
+}
+
+#imgLittle
+{
+    height:auto;
+    width:auto;
+    max-height: 150px;
+    max-width: 150px;
+    margin:10% 10%;
+}
+
+#imgStar 
+{
+    height: auto;
+    width: auto;
+    max-height: 20px;
+    max-width: 20px;
+}
+
+#textCenter
+{
+    text-align:center;
+    vertical-align:middle;
+}
+
+/*
+    <div><h1 class="textBig">@ViewBag.Title</h1>
+*/ 
+div .textBig
+{
+    text-align:center;
+    font-size:x-large;
+}
+
+body
+{
+    background-image: url(../Pictures/background.jpg);
+    background-size:100% auto;
+    background-repeat:no-repeat;
+}
+

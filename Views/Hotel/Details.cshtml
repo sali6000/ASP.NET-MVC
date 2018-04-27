@@ -1,0 +1,124 @@
+﻿@model DTO.HotelEntity
+
+<div>
+    <h4>Hotel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.star_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.star_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.geo_lat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.geo_lat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.geo_lon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.geo_lon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.capacity_rooms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.capacity_rooms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.swimming_pool)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.swimming_pool)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.driver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.driver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.room_service)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.room_service)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,77 @@
+﻿@model BLL.ViewModelManager
+
+@if (Model.RentRoomMemberValidates.Count() > 0)
+{
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.id_room)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.id_member)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.firstdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.lastdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.adult)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.child)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.assurance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRoomMember.validation)
+        </th>
+    </tr>
+
+    @foreach (var item in Model.RentRoomMemberValidates)
+    {
+    <tr>
+        <td>
+            <img id="imgLittle" src="~/Pictures/@Model.RoomGetById(item.id_room).image" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.member.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.member.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adult)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.child)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </td>
+    </tr>
+    }
+</table>
+}
+else
+{
+    <table>
+        <tr>
+            <td><h3>Vous n'avez pas de réservations dans l'historique</h3></td>
+        </tr>
+    </table>
+}

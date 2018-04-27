@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DTO.HotelEntity>
+
+@{ 
+    ViewBag.Title = "Hotels";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.star_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.capacity_rooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.swimming_pool)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.driver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.room_service)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        @Html.Partial("HotelPartial", item)
+    }
+</table>
+@if (DTO.UserSession.CurrentUser != null)
+{
+    if (DTO.UserSession.CurrentUser.admin == true)
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+}

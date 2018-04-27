@@ -1,0 +1,169 @@
+﻿@model DTO.RoomEntity
+
+<div>
+    <h4>Room</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_hotel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_hotel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detail_short)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detail_short)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detail_long)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detail_long)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.capacity_room)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.capacity_room)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            <img src="~/Pictures/@Model.image" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.capacity_bathroom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.capacity_bathroom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.capacity_wc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.capacity_wc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.balcony_include)
+        </dt>
+
+        <dd>
+            @(Model.balcony_include == true ? "Oui" : "Non")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.air_condition_include)
+        </dt>
+
+        <dd>
+            @(Model.air_condition_include == true ? "Oui" : "Non")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wifi_include)
+        </dt>
+
+        <dd>
+            @(Model.wifi_include == true ? "Oui" : "Non")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.small_bar_include)
+        </dt>
+
+        <dd>
+            @(Model.small_bar_include == true ? "Oui" : "Non")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.autorization_animals)
+        </dt>
+
+        <dd>
+            @(Model.autorization_animals == true ? "Oui" : "Non")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tv_include)
+        </dt>
+
+        <dd>
+            @(Model.tv_include == true ? "Oui" : "Non")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.breakfast_include)
+        </dt>
+
+        <dd>
+            @(Model.breakfast_include == true ? "Oui" : "Non")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.child)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.child)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Voir les chambres", "Index") |
+    @Html.ActionLink("Réserver", "Create", "RentRoomMember", new { id = Model.id }, null) |
+    @if (DTO.UserSession.CurrentUser != null && DTO.UserSession.CurrentUser.admin == true)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id })
+
+    }
+</p>
