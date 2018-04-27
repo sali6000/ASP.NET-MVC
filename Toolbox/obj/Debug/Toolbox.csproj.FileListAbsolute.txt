@@ -1,0 +1,12 @@
+C:\Users\User\Desktop\Projets\Steven\HotelManagement\Toolbox\bin\Debug\Toolbox.dll
+C:\Users\User\Desktop\Projets\Steven\HotelManagement\Toolbox\bin\Debug\Toolbox.pdb
+C:\Users\User\Desktop\Projets\Steven\HotelManagement\Toolbox\obj\Debug\Toolbox.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\Projets\Steven\HotelManagement\Toolbox\obj\Debug\Toolbox.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Projets\Steven\HotelManagement\Toolbox\obj\Debug\Toolbox.dll
+C:\Users\User\Desktop\Projets\Steven\HotelManagement\Toolbox\obj\Debug\Toolbox.pdb
+C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\Toolbox\bin\Debug\Toolbox.dll
+C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\Toolbox\bin\Debug\Toolbox.pdb
+C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\Toolbox\obj\Debug\Toolbox.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\Toolbox\obj\Debug\Toolbox.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\Toolbox\obj\Debug\Toolbox.dll
+C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\Toolbox\obj\Debug\Toolbox.pdb
