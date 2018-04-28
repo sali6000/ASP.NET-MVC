@@ -34,7 +34,6 @@ namespace HotelManagement.Controllers
             }
             //RepositoryRoom repositoryRoom = new RepositoryRoom();
         }
-
         public ActionResult Details(int id)
         {
             return View(RoomManager.GetById(id));
@@ -42,12 +41,19 @@ namespace HotelManagement.Controllers
         #endregion
 
         // Controller CREATE
-        #region CREATE
+        #region CREATE (Protected by Admin)
         public ActionResult Create()
         {
-            RoomEntity room = new RoomEntity();
-            room.hotel1 = HotelManager.GetList();
-            return View(room);
+            if(UserSession.CurrentUser != null)
+            {
+                if(UserSession.CurrentUser.admin == true)
+                {
+                    RoomEntity room = new RoomEntity();
+                    room.hotel1 = HotelManager.GetList();
+                    return View(room);
+                }
+            }
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public ActionResult Create(RoomEntity room)
@@ -60,20 +66,28 @@ namespace HotelManagement.Controllers
             catch(Exception ex)
             {
                 ViewBag.Error = ex.Message;
-                return View();
+                room.hotel1 = HotelManager.GetList();
+                return View(room);
             }
         }
         #endregion
 
         // Controller UPDATE
-        #region UPDATE
+        #region UPDATE (Protected by Admin)
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            RoomEntity room = new RoomEntity();
-            room = RoomManager.GetById(id);
-            room.hotel1 = HotelManager.GetList();
-            return View(room);
+            if (UserSession.CurrentUser != null)
+            {
+                if (UserSession.CurrentUser.admin == true)
+                {
+                    RoomEntity room = new RoomEntity();
+                    room = RoomManager.GetById(id);
+                    room.hotel1 = HotelManager.GetList();
+                    return View(room);
+                }
+            }
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public ActionResult Edit(RoomEntity room)
@@ -91,10 +105,17 @@ namespace HotelManagement.Controllers
         #endregion
 
         // Controller DELETE
-        #region DELETE
+        #region DELETE (Protected by Admin)
         public ActionResult Delete(int id)
         {
-            return View(RoomManager.GetById(id));
+            if (UserSession.CurrentUser != null)
+            {
+                if (UserSession.CurrentUser.admin == true)
+                {
+                    return View(RoomManager.GetById(id));
+                }
+            }
+            return RedirectToAction("Index");
         }
         
         [HttpPost]

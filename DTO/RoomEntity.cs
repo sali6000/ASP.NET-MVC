@@ -13,25 +13,36 @@ namespace DTO
     {
         public int id { get; set; }
         [DisplayName("Hotel")]
+        [Required]
         public int id_hotel { get; set; }
+        [Required]
         [DisplayName("Nom")]
         public string name { get; set; }
+        [Required]
         [DisplayName("Déscription")]
         public string detail_short { get; set; }
+        [Required]
         [DisplayName("Déscription (longue)")]
         public string detail_long { get; set; }
+        [Required]
         [DisplayName("Type de chambre")]
         public string type { get; set; }
+        [Required]
         [DisplayName("Nombre de lits")]
         public int capacity_room { get; set; }
+        [Required]
         [DisplayName("Image")]
         public string image { get; set; }
+        [Required]
         [DisplayName("Nombre de salles de bain")]
         public int capacity_bathroom { get; set; }
+        [Required]
         [DisplayName("Nombre de WC")]
         public int capacity_wc { get; set; }
+        [Required]
         [DisplayName("Balcon inclu")]
         public bool balcony_include { get; set; }
+        [Required]
         [DisplayName("Air conditionné inclu")]
         public bool air_condition_include { get; set; }
         [DisplayName("Wifi inclu")]
@@ -44,14 +55,18 @@ namespace DTO
         public bool tv_include { get; set; }
         [DisplayName("Petit déjeuner inclu")]
         public bool breakfast_include { get; set; }
+        [Required]
         [DisplayName("Prix")]
-        [Range(0, 3)]
         public decimal price { get; set; }
+        [Required]
         [DisplayName("Nombre d'adultes")]
         [Range(0, 5)]
         public int adult { get; set; }
+        [Required]
         [DisplayName("Nombre d'enfants")]
+        [Range(0, 3)]
         public int child { get; set; }
+        [Required]
         [DisplayName("Active")]
         public bool active { get; set; }
         [DisplayName("Hotel")]

@@ -135,41 +135,50 @@ namespace DAL
             }
             return rooms;
         }
-        public void AddRoom(RoomEntity room)
+        public int AddRoom(RoomEntity room)
         {
             using (SqlConnection db = new SqlConnection())
             {
-                string query = "INSERT INTO ROOM VALUES (@ArgHotelId, @ArgName, @ArgDetailShot, @ArgDetailLong, @ArgType, @ArgCapacity, @ArgImage, @ArgCapacityBathroom, @ArgCapacityWC, @ArgBalcon, @ArgAirCondition, @ArgWifi, @ArgMiniBar, @ArgAnimals, @ArgTVInclude, @ArgBreakFast, @ArgPrice, @ArgAdult, @ArgChild)";
+                try
+                {
+                    string query = "INSERT INTO ROOM VALUES (@ArgHotelId, @ArgName, @ArgDetailShort, @ArgDetailLong, @ArgType, @ArgCapacity, @ArgImage, @ArgCapacityBathroom, @ArgCapacityWC, @ArgBalcon, @ArgAirCondition, @ArgWifi, @ArgMiniBar, @ArgAnimals, @ArgTVInclude, @ArgBreakFast, @ArgPrice, @ArgAdult, @ArgChild, @ArgActive)";
 
-                db.ConnectionString = AppConfig.ConnectionStringAdo;
+                    db.ConnectionString = AppConfig.ConnectionStringAdo;
 
-                SqlCommand cmd = db.CreateCommand();
+                    SqlCommand cmd = db.CreateCommand();
 
-                cmd.Parameters.Add(new SqlParameter("@ArgHotelId", room.id_hotel));
-                cmd.Parameters.Add(new SqlParameter("@ArgName", room.name));
-                cmd.Parameters.Add(new SqlParameter("@ArgDetailShot", room.detail_short));
-                cmd.Parameters.Add(new SqlParameter("@ArgDetailLong", room.detail_long));
-                cmd.Parameters.Add(new SqlParameter("@ArgType", room.type));
-                cmd.Parameters.Add(new SqlParameter("@ArgCapacity", room.capacity_room));
-                cmd.Parameters.Add(new SqlParameter("@ArgImage", room.image == null ? "" : room.image));
-                cmd.Parameters.Add(new SqlParameter("@ArgCapacityBathroom", room.capacity_bathroom));
-                cmd.Parameters.Add(new SqlParameter("@ArgCapacityWC", room.capacity_wc));
-                cmd.Parameters.Add(new SqlParameter("@ArgBalcon", room.balcony_include));
-                cmd.Parameters.Add(new SqlParameter("@ArgAirCondition", room.air_condition_include));
-                cmd.Parameters.Add(new SqlParameter("@ArgWifi", room.wifi_include));
-                cmd.Parameters.Add(new SqlParameter("@ArgMiniBar", room.small_bar_include));
-                cmd.Parameters.Add(new SqlParameter("@ArgAnimals", room.autorization_animals));
-                cmd.Parameters.Add(new SqlParameter("@ArgTVInclude", room.tv_include));
-                cmd.Parameters.Add(new SqlParameter("@ArgBreakFast", room.breakfast_include));
-                cmd.Parameters.Add(new SqlParameter("@ArgPrice", room.price));
-                cmd.Parameters.Add(new SqlParameter("@ArgAdult", room.adult));
-                cmd.Parameters.Add(new SqlParameter("@ArgChild", room.child));
+                    cmd.Parameters.Add(new SqlParameter("@ArgHotelId", room.id_hotel));
+                    cmd.Parameters.Add(new SqlParameter("@ArgName", room.name));
+                    cmd.Parameters.Add(new SqlParameter("@ArgDetailShort", room.detail_short));
+                    cmd.Parameters.Add(new SqlParameter("@ArgDetailLong", room.detail_long));
+                    cmd.Parameters.Add(new SqlParameter("@ArgType", room.type));
+                    cmd.Parameters.Add(new SqlParameter("@ArgCapacity", room.capacity_room));
+                    cmd.Parameters.Add(new SqlParameter("@ArgImage", room.image == null ? "" : room.image));
+                    cmd.Parameters.Add(new SqlParameter("@ArgCapacityBathroom", room.capacity_bathroom));
+                    cmd.Parameters.Add(new SqlParameter("@ArgCapacityWC", room.capacity_wc));
+                    cmd.Parameters.Add(new SqlParameter("@ArgBalcon", room.balcony_include));
+                    cmd.Parameters.Add(new SqlParameter("@ArgAirCondition", room.air_condition_include));
+                    cmd.Parameters.Add(new SqlParameter("@ArgWifi", room.wifi_include));
+                    cmd.Parameters.Add(new SqlParameter("@ArgMiniBar", room.small_bar_include));
+                    cmd.Parameters.Add(new SqlParameter("@ArgAnimals", room.autorization_animals));
+                    cmd.Parameters.Add(new SqlParameter("@ArgTVInclude", room.tv_include));
+                    cmd.Parameters.Add(new SqlParameter("@ArgBreakFast", room.breakfast_include));
+                    cmd.Parameters.Add(new SqlParameter("@ArgPrice", room.price));
+                    cmd.Parameters.Add(new SqlParameter("@ArgAdult", room.adult));
+                    cmd.Parameters.Add(new SqlParameter("@ArgChild", room.child));
+                    cmd.Parameters.Add(new SqlParameter("@ArgActive", true));
 
-                cmd.CommandText = query;
+                    cmd.CommandText = query;
 
-                db.Open();
+                    db.Open();
 
-                int result = cmd.ExecuteNonQuery();
+                    return cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Erreur: " + ex.Message);
+                }
+
             }
         }
         public void UpdateRoom(RoomEntity room)

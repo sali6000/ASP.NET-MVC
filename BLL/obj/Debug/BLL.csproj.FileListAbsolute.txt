@@ -18,3 +18,23 @@ C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\BLL\obj\Debug\BLL.c
 C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\BLL\obj\Debug\BLL.dll
 C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\BLL\obj\Debug\BLL.pdb
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\BLL\bin\Debug\BLL.dll
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\BLL\bin\Debug\BLL.pdb
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\BLL\bin\Debug\DAL.dll
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\BLL\bin\Debug\DTO.dll
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\BLL\bin\Debug\DAL.pdb
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\BLL\bin\Debug\DTO.pdb
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\BLL\obj\Debug\BLL.dll
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\BLL\obj\Debug\BLL.pdb
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\BLL\bin\Debug\BLL.dll
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\BLL\bin\Debug\BLL.pdb
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\BLL\bin\Debug\DAL.dll
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\BLL\bin\Debug\DTO.dll
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\BLL\bin\Debug\DAL.pdb
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\BLL\bin\Debug\DTO.pdb
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\BLL\obj\Debug\BLL.dll
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\BLL\obj\Debug\BLL.pdb

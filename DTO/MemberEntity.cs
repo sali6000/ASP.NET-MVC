@@ -12,16 +12,20 @@ namespace DTO
         [DisplayName("Identificateur")]
         public int id { get; set; }
         [DisplayName("Prénom")]
+        [MaxLength(30)]
         public string first_name { get; set; }
         [DisplayName("Nom")]
+        [MaxLength(30)]
         public string last_name { get; set; }
         [Required]
+        [MaxLength(30)]
         [DisplayName("Email")]
         [EmailAddress]
         public string email { get; set; }
         [DisplayName("Pays")]
         public EnumPays country { get; set; }
         [DisplayName("Téléphone")]
+        [MaxLength(30)]
         [DataType(DataType.PhoneNumber)]
         public string phone { get; set; }
         [DisplayName("Pseudo")]
@@ -30,13 +34,13 @@ namespace DTO
         [Required]
         public string username { get; set; }
         [DisplayName("Mot de passe")]
-        [Required]
+        [Required(ErrorMessage = "Le mot de passe doit être insérer")]
         [DataType(DataType.Password)]
         [MinLength(8)]
         [MaxLength(30)]
         public string password { get; set; }
-        [Required]
         [DataType(DataType.Password)]
+        [MaxLength(30)]
         [DisplayName("Confirmation du mot de passe")]
         [Compare("password", ErrorMessage = "Les mots de passe doivent être identiques")]
         public string confirmPassword { get; set; }

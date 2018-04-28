@@ -14,3 +14,19 @@ C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\DTO\obj\Debug\DTO.c
 C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\DTO\obj\Debug\DTO.dll
 C:\Users\User\Desktop\ProjetsGitHub\Projects\HotelManagement\DTO\obj\Debug\DTO.pdb
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\DTO\bin\Debug\DTO.dll
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\DTO\bin\Debug\DTO.pdb
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\DTO\bin\Debug\DAL.dll
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\DTO\bin\Debug\DAL.pdb
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\DTO\obj\Debug\DTO.dll
+C:\Users\User\Desktop\ProjetsGitHub\HotelManagement\DTO\obj\Debug\DTO.pdb
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\DTO\bin\Debug\DTO.dll
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\DTO\bin\Debug\DTO.pdb
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\DTO\bin\Debug\DAL.dll
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\DTO\bin\Debug\DAL.pdb
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\DTO\obj\Debug\DTO.dll
+C:\Users\User\Desktop\Projet ASP.NET MVC\HotelManagement\DTO\obj\Debug\DTO.pdb
