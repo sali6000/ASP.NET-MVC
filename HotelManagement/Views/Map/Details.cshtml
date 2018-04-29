@@ -1,0 +1,43 @@
+﻿@model DTO.HotelEntity
+<head>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<div>
+    <h4>HotelEntity</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+    </dl>
+
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: {lat: @Model.geo_lat, lng: @Model.geo_lon}
+        });
+        var marker = new google.maps.Marker({
+          position: {lat: @Model.geo_lat, lng: @Model.geo_lon},
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVQtxoEaae_iZKaEIDITYImW_SNdVXb2w&callback=initMap">
+    </script>
+
+</div>
+<p>
+    @Html.ActionLink("Description de l'hotel", "Details","Hotel",new { id = Model.id }, null)
+</p>

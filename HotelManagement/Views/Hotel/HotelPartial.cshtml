@@ -33,11 +33,14 @@
     <td>
         @(Model.room_service == true ? "Oui" : "Non")
     </td>
+    <td>
+        @Html.ActionLink("Map", "Details","Map", new { id = Model.id }, null)
+   </td>
 
-    @{ if (DTO.UserSession.CurrentUser != null)
-        {
-            if (DTO.UserSession.CurrentUser.admin == true)
+        @{ if (DTO.UserSession.CurrentUser != null)
             {
+                if (DTO.UserSession.CurrentUser.admin == true)
+                {
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
                     @Html.ActionLink("Details", "Details", new { id = Model.id }) |
@@ -45,5 +48,5 @@
                 </td>
             }
         }
-    }
-</tr>
+        }
+    </tr>
